@@ -1,4 +1,4 @@
-baseURL: "https://examplesite.com/"
+baseURL: "http://my-personal-static-site-epam-task.s3-website-us-east-1.amazonaws.com"
 title: Knox's Blog
 paginate: 5
 theme: PaperMod
