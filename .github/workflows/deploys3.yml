@@ -24,6 +24,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: configure aws credentials
+        id: creds
         uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
           role-to-assume: arn:aws:iam::454127780570:role/GithubActions
@@ -42,5 +43,5 @@ jobs:
         run: |
           aws s3 sync public/ s3://my-personal-static-site-epam-task
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ steps.creds.outputs.aws-access-key-id }}
+          AWS_SECRET_ACCESS_KEY: ${{ steps.creds.outputs.aws-secret-access-key }}
